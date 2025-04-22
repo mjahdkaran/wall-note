@@ -44,8 +44,7 @@ npm install
 
 
 
-
-# React Note App with Drag & Drop 📝
+**# React Note App with Drag & Drop 📝**
 
 Welcome to the **React Note App**! 🎉 This note-taking app is built using **React**, **Tailwind CSS**, and **TypeScript**. It features drag-and-drop functionality for notes, deadline-based coloring, and allows you to edit, delete, and add new notes.
 
