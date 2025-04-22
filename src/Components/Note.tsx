@@ -54,7 +54,7 @@ export default function Note({
 
   return (
     <div
-      className={` ${bgColor} md:h-60 h-32 rounded-md flex flex-col justify-between  shadow-lg  hover:shadow-xl   `}
+      className={` ${bgColor} md:h-60 h-32 rounded-md flex flex-col justify-between  shadow-lg  hover:shadow-lg hover:shadow-orange-500  `}
     >
       <div className="flex flex-col md:text-lg text-sm py-3 px-2 ">
         <p className="text-xs text-left text-gray-500">{noteObj.record}</p>
