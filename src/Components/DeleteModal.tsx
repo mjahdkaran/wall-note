@@ -1,5 +1,3 @@
-import React from "react";
-
 interface DeleteModalProps {
     onClose: (value: boolean) => void;
     onConfirm: () => void;
