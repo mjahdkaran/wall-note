@@ -8,7 +8,9 @@ export default function DeleteModal({onClose,onConfirm }:DeleteModalProps) {
       <div className="md:w-4/12 w-11/12 md:h-60 h-44 bg-white   rounded-lg py-2 px-4 flex flex-col ">
         <div className="flex justify-between items-center text-gray-600">
           <p>حذف یادداشت</p>
-          <button className="font-bold text-xl hover:text-red-600">×</button>
+          <button 
+           onClick={()=>onClose(false)}
+          className="font-bold text-xl hover:text-red-600">×</button>
         </div>
         <p className="h-1/2 flex justify-center items-center md:text-xl">
           آیا از حذف یادداشت مطمئن هستید؟
