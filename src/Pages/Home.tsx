@@ -3,11 +3,11 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
 import { arrayMove, SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import Note from "../Components/Note"; // کامپوننت Note که به شما قبلاً گفتم
-import AddNoteModal from "../Components/AddNoteModal"; // کامپوننت AddNoteModal برای افزودن یادداشت
-import DeleteModal from "../Components/DeleteModal"; // کامپوننت DeleteModal برای حذف یادداشت
-import { tempNotes } from "../tempdata"; // داده‌های موقت برای یادداشت‌ها
-import { TypeNote } from "../types"; // تایپ‌گذاری یادداشت‌ها
+import Note from "../Components/Note"; 
+import AddNoteModal from "../Components/AddNoteModal"; 
+import DeleteModal from "../Components/DeleteModal"; 
+import { tempNotes } from "../tempdata";
+import { TypeNote } from "../types"; 
 
 function SortableNote({
   note,
@@ -37,7 +37,7 @@ function SortableNote({
         dragHandleProps={{
           ref: setActivatorNodeRef,
           ...listeners,
-        }} // ✅ ارسال props به کامپوننت Note برای Drag Handle
+        }} 
       />
     </div>
   );
@@ -52,7 +52,6 @@ export default function Home() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [noteIdToDelete, setNoteIdToDelete] = useState<string | null>(null);
 
-  // Setting up drag and drop functionality using DndKit
   const sensors = useSensors(useSensor(PointerSensor));
 
   const handleDragEnd = (event: any) => {
@@ -64,7 +63,6 @@ export default function Home() {
     }
   };
 
-  // Handling saving of a new or edited note
   const handleSaveNot = (note: Omit<TypeNote, "id">) => {
     if (editNote) {
       setNotes((prev) =>
@@ -78,18 +76,15 @@ export default function Home() {
     setShowAddNoteModal(false);
   };
 
-  // Handling the edit button of each note
   const handleEditNote = (note: TypeNote) => {
     setEditNot(note);
   };
 
-  // Handling the delete button of each note
   const handlerDeletedNote = (id: string) => {
     setNoteIdToDelete(id);
     setShowDeleteModal(true);
   };
 
-  // Confirming deletion of a note
   const confirmDelete = () => {
     if (noteIdToDelete) {
       setNotes((prev) => prev.filter((note) => note.id !== noteIdToDelete));
@@ -100,11 +95,9 @@ export default function Home() {
 
   return (
     <div className="w-full h-full flex flex-col items-center">
-      {/* Drag and Drop Context */}
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={notes.map((note) => note.id)} strategy={verticalListSortingStrategy}>
           <div className="md:w-10/12 w-11/12 h-fit grid md:grid-cols-4 grid-cols-1 gap-4 py-28">
-            {/* Rendering Notes */}
             {notes.map((note) => (
               <SortableNote
                 key={note.id}
@@ -118,7 +111,6 @@ export default function Home() {
         </SortableContext>
       </DndContext>
 
-      {/* Add New Note Button */}
       <button
         onClick={() => {
           setShowAddNoteModal(true);
@@ -129,7 +121,6 @@ export default function Home() {
         <PlusIcon className="md:size-10 size-6" />
       </button>
 
-      {/* Add Note Modal */}
       {showAddNoteModal && (
         <AddNoteModal
           onClose={setShowAddNoteModal}
@@ -138,7 +129,6 @@ export default function Home() {
         />
       )}
 
-      {/* Delete Confirmation Modal */}
       {showDeleteModal && (
         <DeleteModal
           onClose={() => {

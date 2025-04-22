@@ -8,7 +8,7 @@ interface NoteProps {
   onClose: (value: boolean) => void;
   onEdit: (note: TypeNote) => void;
   onDelete: (id: string) => void;
-  dragHandleProps?: any; // اضافه شده
+  dragHandleProps?: any; 
 }
 
 export default function Note({
@@ -56,7 +56,7 @@ export default function Note({
    
       className={` ${bgColor} md:h-60 h-32 rounded-md flex flex-col justify-between shadow-lg hover:shadow-lg hover:shadow-orange-500`}
     >
-      {/* Drag Handle */}
+
       <div
         {...dragHandleProps}
         className=" flex justify-between cursor-grab active:cursor-grabbing text-gray-400 hover:text-gray-600 p-2 "
@@ -67,12 +67,12 @@ export default function Note({
         <p className="text-xs  text-left text-gray-500">{noteObj.record}</p>
       </div>
 
-      {/* Note Content */}
+
       <div className="flex flex-col md:text-lg text-sm py-3 px-2 ">
         <p className="md:line-clamp-5 line-clamp-3 ">{noteObj.text}</p>
       </div>
 
-      {/* Footer with buttons */}
+
       <div className="bg-orange-200 flex justify-between p-1 rounded-md">
         <div className="text-xs text-gray-700">
           <span>مهلت انجام : </span>

@@ -21,7 +21,7 @@ export default function AddNoteModal({
 }: AddNoteProp) {
   const [noteDetail, setNoteDetail] = useState<NoteDeatilType>({
     text: "",
-    record: getTodayDate(), // فرض می‌گیریم این تابع تاریخ میلادی به شکل "YYYY-MM-DD" می‌ده
+    record: getTodayDate(), 
     deadline: "",
   });
 
